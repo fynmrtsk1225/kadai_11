@@ -51,6 +51,7 @@ class TeamsController < ApplicationController
     @owner = @working_team
     @next_owner = params[:id]
     @owner.update(owner_id: @next_owner)
+    ChangeMailer.change_mail(@owner).deliver
     redirect_to team_path(@working_team.name)
   end
 
