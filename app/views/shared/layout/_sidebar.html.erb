@@ -34,6 +34,13 @@
               <i class="fa fa-circle-o nav-icon"></i>
               <p>
                 <%= agenda.title %>
+                <object><a>
+                  <% if @working_team.owner == current_user || agenda.user == current_user %>
+                    <%= link_to '削除', agenda_path(agenda.id), method: :delete %>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                </a></object>
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
