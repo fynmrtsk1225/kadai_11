@@ -50,6 +50,11 @@
                       <% else %>
                         <td></td>
                       <% end %>
+                      <% if @team.owner == current_user %>
+                        <td><%= button_to I18n.t('views.button.change'), change_team_path(assign.user.id), method: :get, class: 'btn btn-sm btn-secondary' %></td>
+                      <% else %>
+                        <td></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>
